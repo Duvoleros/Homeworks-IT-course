@@ -28,6 +28,7 @@ public:
     string get_integer();
     string get_fractional();
     void outup();
+
 };
 
 ostream & operator << (ostream &cout_bn, const number_sys &num)
@@ -74,7 +75,6 @@ string number_sys::get_fractional()
     return this -> fractional;
 }
 
-///требует доработки, разрядность не работает
 number_sys convert_to_radix(double number, int radix, double error)
 {
     ///transfering integer part
@@ -144,13 +144,13 @@ number_sys convert_to_radix(double number, int radix, double error)
 void outup()
 {
     cout<<"I THE INITIAL DATA"<<endl;
-    cout<<" The initial decimal number: x_10 = "<<endl;
+    cout<<" The initial decimal number: x_10 = ";
     double number;
     cin>>number;
-    cout<<"The radix of the target numeral system: r = "<<endl;
+    cout<<"The radix of the target numeral system: r = ";
     int rad;
     cin>>rad;
-    cout<<"The required precission of the converted number: epsilon_sup = "<<endl;
+    cout<<"The required precission of the converted number: epsilon_sup = ";
     double er;
     cin>>er;
     number_sys a = convert_to_radix(number, rad, er);
