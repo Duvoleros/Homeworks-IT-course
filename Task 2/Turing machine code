@@ -1,0 +1,68 @@
+;The machine that encodes the input string of the decimal numerals by
+;the binary numerals using BCD (Binary-coded decimal)
+;
+; could be executed in online sumulator http://morphett.info/turing/turing.html
+;------
+
+0 2 _ R Start2
+0 3 _ R Start3
+0 4 _ R Start4
+0 _ _ * halt-done;
+
+;programs for each numbers
+
+;NUMBER 2
+Start2 2 2 R Start2
+Start2 3 3 R Start2
+Start2 4 4 R Start2
+Start2 _ _ R Gap2;
+
+Gap2 1 1 R Gap2
+Gap2 0 0 R Gap2
+Gap2 _ _ * Bit42;
+
+Bit42 _ 0 R Bit32;
+Bit32 _ 0 R Bit22;
+Bit22 _ 1 R Bit12;
+Bit12 _ 0 L Back;
+
+;NUMBER 3
+Start3 2 2 R Start3
+Start3 3 3 R Start3
+Start3 4 4 R Start3
+Start3 _ _ R Gap3;
+
+Gap3 1 1 R Gap3
+Gap3 0 0 R Gap3
+Gap3 _ _ * Bit43;
+
+Bit43 _ 0 R Bit33;
+Bit33 _ 0 R Bit23;
+Bit23 _ 1 R Bit13;
+Bit13 _ 1 L Back;
+
+;NUMBER 4
+Start4 2 2 R Start4
+Start4 3 3 R Start4
+Start4 4 4 R Start4
+Start4 _ _ R Gap4;
+
+Gap4 1 1 R Gap4
+Gap4 0 0 R Gap4
+Gap4 _ _ * Bit44;
+
+Bit44 _ 0 R Bit34;
+Bit34 _ 1 R Bit24;
+Bit24 _ 0 R Bit14;
+Bit14 _ 0 L Back;
+
+;Going back to start cell
+
+Back 0 0 L Back;
+Back 1 1 L Back;
+Back _ _ L Back_num;
+
+Back_num 2 2 L Back_num
+Back_num 3 3 L Back_num
+Back_num 4 4 L Back_num
+Back_num _ _ R 0
