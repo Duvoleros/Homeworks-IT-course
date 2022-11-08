@@ -155,12 +155,11 @@ void outup()
     cin>>er;
     number_sys a = convert_to_radix(number, rad, er);
     cout<<"II THE REZULTS OF THE CONVERSION"<<'\n';
-    cout<<" The required number of the significant numerals s = "<<a.get_fractional().size()<<" that corresponds the given prcission epsilon_sup = "<<er<<'/n';
+    cout<<" The required number of the significant numerals s = "<<a.get_fractional().size()<<" that corresponds the given prcission epsilon_sup = "<<er<<'\n';
     cout<<" The result of the conversion: x_"<<rad<<" = "<<a<<'\n';
 }
 
 int main()
 {
     outup();
-    //cout<<convert_to_radix(101.2003, 3, 1e-4);
 }
