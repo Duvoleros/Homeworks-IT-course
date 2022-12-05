@@ -17,7 +17,7 @@ public:
         this -> integer = num.substr(0, num.find_first_of('.'));
         this -> fractional = num.substr(num.find_first_of('.')+1, num.size() - num.find_first_of('.'));
     }
-    number_sys convert_to_radix(double number, int radix, int precision = 10);
+    number_sys convert_to_radix(double number, int radix, double error);
     friend ostream & operator << (ostream &cout_bn, const number_sys &num);
     friend istream & operator >> (istream &cin_bn, number_sys &num);
     number_sys() {};
