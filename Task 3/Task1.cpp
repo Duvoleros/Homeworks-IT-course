@@ -4,7 +4,7 @@ int main()
 {
     int x; // input var
     int result; // final result
-    scanf("%d", x);
+    scanf_s("%d", &x);
     __asm
     {
         mov eax, x
@@ -27,7 +27,7 @@ int main()
         add ebx, 150
         jmp exit_
     equal :
-        mov ebx, 9
+        mov ebx, 9 //(x+10)^2/25 =|x=10|= 15^2/5^2 = 9
         jmp exit_
     exit_ :
         mov result, ebx
